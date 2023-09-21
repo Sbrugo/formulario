@@ -1,5 +1,3 @@
-console.log("Hola");
-
 
 const capturarId = (id) => document.getElementById(id);
 
@@ -25,7 +23,7 @@ function capturarDatos(){
     datosPersona.nombre = nom;
     datosPersona.correo = corr;
     datosPersona.contrasenia = con;
-    console.log("captura de datos funcionando");
+
     return datosPersona;
 }
 
@@ -42,26 +40,24 @@ form.addEventListener('submit', e => {
     
 })
 
-const errores = [];
 
 function validarInformacion(usuario){
 
+    const errores = [];
 
-    if(usuario.nombre.trim()===""){
+    if(usuario.nombre.trim().length<3){
         errores.push("El nombre debe tener al menos tres carácteres");
     }
 
     if(usuario.contrasenia.length < 6){
         errores.push("La contraseña debe tener 6 o más carácteres");
     }
-    console.log("validacion de datos funcionando");
-    console.log(errores);
+
     return errores;
 }
 
 function mostrarErrores(){
     const ul = document.querySelector(".errorlist");
-
 
     errores.forEach((string) => {
         const li = document.createElement("li");
